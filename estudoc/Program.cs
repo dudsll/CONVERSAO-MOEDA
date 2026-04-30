@@ -38,39 +38,30 @@ class Program
         {
             case 1:
                 return await ObterCotacaoDolar();
-                break;
             case 2:
                 return await ObterCotacaoDirham();
             case 3:
                 return await ObterCotacaoDirham();
             default:
                 Console.WriteLine("Opção inválida");
-                break;
+                return 0;
         }
-    
-
-
-
-        if (opcao == 1)
-            return await ObterCotacaoDolar();
-
-        else if (opcao == 2 || opcao == 3)
-            return await ObterCotacaoDirham();
-
-        else
-            return 0;
     }
 
     static double ConverterMoeda(double valor, double cotacao, int opcao)
     {
-        if (opcao == 1 || opcao == 2)
-            return valor / cotacao;
-
-        else if (opcao == 3)
-            return valor * cotacao;
-
-        else
-            return 0;
+        switch (opcao)
+        {
+            case 1:
+                return valor / cotacao;
+            case 2:
+                return valor / cotacao;
+            case 3:
+                return valor * cotacao;
+            default:
+                Console.WriteLine("Opção inválida");
+                return 0;
+        }
     }
     
     static async Task<double> ObterCotacaoDolar()
